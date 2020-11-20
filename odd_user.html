@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="jumbotron">
+    <h1 class="display-4"> Welcome to the game! </h1>
+    <hr class="my-4">
+    <p class="lead">Choose a number between 1 and 10 (inclusive) to play!</p>
+    <p class="lead">Experiment Code: <b>RBE135</b></p>
+    </div>
+    
+   <div class="container">
+     <div class="row">
+       <div class = "col-xl"></div>
+       <div class = "col-xl">
+         <div class = "card">
+           <div class = "card-body">
+           <h5 class="card-title">Click the Button:</h5>
+           <p class="card-text"> You currently have a <b> 1/10 </b> Probability of Winning </p>
+           <input type="text" id="guess">
+           <button type="button" class="btn btn-primary" id="button" onclick="check_win()">Enter</button>
+           </div>
+         </div>
+       </div>
+       <div class = "col-xl"></div>
+     </div>
+     <div class="row"></div>
+     <div class="row">
+       <div class = "col-xl"></div>
+       <div class = "col-xl">
+         <script> 
+           document.getElementById("button").addEventListener("click", check_win);
+           
+           function getRandomInt(min, max) 
+            {
+              var min = Math.ceil(min);
+              var max = Math.floor(max);
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+           
+           function check_win() {
+             var input = document.getElementById("guess").value;
+             var actual = getRandomInt(1,10);
+             
+             if (input == actual){
+               document.getElementById('output').innerHTML = "<p><br><br>Congratulations! You Win!</p>";
+             } else {
+               document.getElementById('output').innerHTML = "<p><br><br>Sorry, you did not win. The actual number was " + actual +"</p>";
+             }
+           }
+         </script>
+         <div id='output'></div>
+       </div>
+       <div class = "col-xl"></div>
+       
+         <script>
+           document.getElementById("test").innerHTML = document.getElementById("guess").value
+         </script>
+         <div id="test"></div>
+         <br><br><br>
+         <div class="row">
+           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeS5Qk3dTNPzEMEqHXUi7nU4YpLWrk3xboTu9p9P3ge8ZREQA/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+         </div>
+     </div>
+   </div>
+    
+  </body>
+</html>

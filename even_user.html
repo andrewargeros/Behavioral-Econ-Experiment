@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="jumbotron">
+    <h1 class="display-4"> Welcome to the game! </h1>
+    <hr class="my-4">
+    <p class="lead">Click the Button to seen if you Won!</p>
+    <p class="lead">Experiment Code: <b>ZXH782</b></p>
+    </div>
+    
+   <div class="container">
+     <div class="row">
+       <div class = "col-xl"></div>
+       <div class = "col-xl">
+         <div class = "card">
+           <div class = "card-body">
+           <h5 class="card-title">Click the Button:</h5>
+           <p class="card-text"> You currently have a <b> 1/10 </b> Probability of Winning </p>
+           <button type="button" class="btn btn-primary" id="button" onclick="check_win()">Play!</button>
+           </div>
+         </div>
+       </div>
+       <div class = "col-xl"></div>
+     </div>
+     <div class="row"></div>
+     <div class="row">
+       <div class = "col-xl"></div>
+       <div class = "col-xl">
+         <script> 
+           document.getElementById("button").addEventListener("click", check_win);
+           
+           function getRandomInt(min, max) 
+            {
+              var min = Math.ceil(min);
+              var max = Math.floor(max);
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            
+           
+           function check_win() {
+             var random = getRandomInt(1,10);
+             
+             if (random == 9){
+               document.getElementById('output').innerHTML = "<p><br><br>Congratulations! You Win!</p>";
+             } else {
+               document.getElementById('output').innerHTML = "<p><br><br>Sorry, you did not win.</p>";
+             }
+           }
+         </script>
+         <div id='output'></div>
+       </div>
+       <div class = "col-xl"></div>
+         <div id="test"></div>
+     </div>
+     <br><br><br>
+     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeS5Qk3dTNPzEMEqHXUi7nU4YpLWrk3xboTu9p9P3ge8ZREQA/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+   </div>
+    
+  </body>
+</html>
